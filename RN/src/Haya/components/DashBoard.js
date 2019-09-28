@@ -36,13 +36,13 @@ onStarRatingPress = (rating) => {
               <Image style={styles.item} source={require('./OG_Facebook.png')}/> 
               {/* it should be this.props.photo  */}
               {console.log('log from dash', this.state.user)}
-              <Text style={styles.item}>{this.state.user}</Text> 
+              <Text style={styles.item}>{this.state.user.name}</Text> 
               {/* it should be {this.props.name} */}
             </View>
             <View style={styles.stars}>
             <StarRating
               maxStars = {5}
-              rating={this.state.starCount} // it should be this.props.userRating
+              rating={this.state.user.rating} // it should be this.props.userRating
               starSize = {15}
               fullStarColor = 'gold'
               // selectedStar={(rating) => this.onStarRatingPress(rating)}
@@ -53,7 +53,8 @@ onStarRatingPress = (rating) => {
                 Your History:
               </Text>
               <View style={styles.historyContainer}>
-                <HistoryItem/>
+                {/* <Text>{this.state.user.name}</Text> */}
+                <HistoryItem user = {this.state.user}/>
               </View>
             </View>
           </Fragment>

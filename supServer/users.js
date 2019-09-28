@@ -26,7 +26,7 @@ router.post('/default', (req, res) => {
 
 
    router.post("/getUsers", (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
     mongo.getUsers(req.body, result => {
       res.json(result);
     });

@@ -32,6 +32,7 @@ let userSchema = new mongoose.Schema({
 });
 
 let postSchema = new mongoose.Schema({
+  user: String,
   task: String,
   time: Date,
   categories: String,
@@ -42,7 +43,8 @@ let postSchema = new mongoose.Schema({
   booking: Boolean,
   userRating: Number,
   serveceProviderRating: Number,
-  serveceProvider: String
+  serveceProvider: String,
+  // reports: Number
 });
 
 

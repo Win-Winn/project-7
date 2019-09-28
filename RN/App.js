@@ -11,6 +11,8 @@ import SignupServiceProviderScreen from './src/Deyaa/components/SignupServicePro
 import WellcomePage from './src/Haya/components/Wellcome'
 // import Posts from './src/Moath/components/Posts'
 import Dashboard from './src/Haya/components/DashBoard'
+// import NewPost from './src/Emad/components/NewPost'
+import NewPost from './src/Emad/components/NewPost'
 const navigator = createStackNavigator(
   {
     UserHomeScreen: UserHomeScreen,
@@ -23,10 +25,11 @@ const navigator = createStackNavigator(
     SignupServiceProviderScreen,
     WellcomePage: WellcomePage,
     // Posts,
-    Dashboard
+    Dashboard,
+    NewPost
   },
   {
-    initialRouteName: 'LoginScreen',
+    initialRouteName: 'WellcomePage',
     defaultNavigationOptions: {
       title: 'App'
     }

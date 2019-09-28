@@ -3,11 +3,11 @@ import { Text, StyleSheet } from 'react-native';
 import Posts from '../Moath/components/Posts';
 import Sort from '../Haya/components/Sort'
 // import Posts from '../Moath/components/Posts'
-const ServeceProviderHome = () => {
+const ServeceProviderHome = (props) => {
   return(
     <>
     <Sort/>
-    <Posts/>
+    <Posts user = {props.navigation.getParam('user')}/>
     </>
     )
 };

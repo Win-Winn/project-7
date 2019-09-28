@@ -1,12 +1,13 @@
 const db =require("../DB")
 
 let temp = [{
-  userName: 'someOne',
-  phone: '0777888888',
-  password: 'somePassword',
+  name: 'otherOne',
+  email: 'other',
+  phoneNumber: '0777888888',
+  password: 'other',
   photo: 'someLink',
   age: '24',
-  rating: 4.5
+  rating: 1.5
 }]
 
 
@@ -41,12 +42,12 @@ const createUser = (user, cb) => {
  };
 
  const getUsers = (user, cb) => {
-  console.log(user);
+  // console.log(user);
   let USER = {
     email: user.email,
     password: user.password
   };
-  console.log(USER);
+  // console.log(USER);
   db.users.find(USER, (err, data) => {
     if (err) cb(err);
     else cb(data);

@@ -1,19 +1,35 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, FlatList } from 'react-native';
+import { StyleSheet, View, FlatList, TouchableOpacity } from 'react-native';
 import { Avatar, Rating, Button, Text } from 'react-native-elements';
 import axios from 'axios';
 
+const codingAcademy = '10.60.247.112'
+const home = '192.168.1.92'
+// const sakan = ''
+
 export default class New extends Component {
-  state = [
-    data = []
-  ]
+  state = {
+    data : [],
+    color : '',
+    // report
+    // display: 'none'
+  }
 
   componentWillMount() {
-    axios.get('http://10.60.247.112:9000/posts/posts')
+    axios.get(`http://${home}:9000/posts/posts`)
       .then(res => {
         this.setState({ data: res.data })
       })
       .catch(err => console.log(err))
+  }
+
+  book = (id) => {
+    
+    axios.put(`http://${home}:9000/posts/booking/${id}/${this.props.user.name}`)
+    .then(res => {
+      console.log('from book native', res.data)
+    })
+    this.setState({color: 'red'})
   }
 
   addPost = newPost => {
@@ -69,7 +85,33 @@ export default class New extends Component {
               </Text>
             </View>
             <View>
-              <Button title='book' />
+              <Button
+              title = 'book'
+              buttonStyle = {{
+                backgroundColor: (item.booking) ? 'red' : 'blue'
+                // : this.state.color,
+              }}
+              onPress = {this.book.bind(this, item._id)}
+              >
+              </Button>
+              <TouchableOpacity 
+                style={{backgroundColor: 'red'}}
+                onPress = {() => {
+                  // axios.put(`http://${home}:9000/posts/report/${item._id}`)
+                  // if(item.reports > 3){
+                  //   // .then(res => {
+                  //     // this.setState({ report: 0 })
+                  //     axios.put(`http://${home}:9000/posts/report2/${item._id}`)
+                  //     this.setState({report: this.state.report + 1})
+                  alert('you report sent sucssesfully,, Thank you!')
+
+
+                  //     // })
+                  // }
+                }}
+                >
+                <Text>Report</Text>
+              </TouchableOpacity>
             </View>
           </View>
         }
@@ -109,6 +151,9 @@ const styles = StyleSheet.create({
   },
   NameView: {
     paddingTop: 7
+  },
+  btn:{
+    backgroundColor: 'red'
   }
 });
 

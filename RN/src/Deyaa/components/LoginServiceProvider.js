@@ -10,6 +10,10 @@ import {
   TouchableNativeFeedback
 } from "react-native";
 
+const codingAcademy = '10.60.247.112'
+const home = '192.168.1.92'
+// const sakan = ''
+
 class LoginScreen extends Component {
   state = {
     email: "",
@@ -27,7 +31,7 @@ class LoginScreen extends Component {
       password: ""
     });
     let res = await axios.post(
-      "http://10.60.247.112:9000/users/getUsers",
+      `http://${home}:9000/users/getUsers`,
       {
         email: this.state.submittedEmail,
         password: this.state.submittedPassword

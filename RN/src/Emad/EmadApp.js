@@ -11,7 +11,7 @@ import {
   StatusBar,
   FlatList
 } from 'react-native';
-import Input from './components/input'
+import NewPost from './components/NewPost'
 
 class EmadApp extends Component {
 
@@ -20,7 +20,7 @@ class EmadApp extends Component {
         return (
           <Fragment>
             <Text>Emad App</Text>
-            <Input/>
+            <NewPost/>
           </Fragment>
         );
     }

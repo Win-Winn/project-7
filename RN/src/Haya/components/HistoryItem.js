@@ -15,6 +15,9 @@ import {
 } from 'react-native';
 import axios from "axios";
 
+const codingAcademy = '10.60.247.112'
+const home = '192.168.1.92'
+// const sakan = ''
 class HistoryItem extends Component {
     state = {
         myPosts: [
@@ -35,19 +38,27 @@ class HistoryItem extends Component {
       serveceProvider: 'name'
     }
 
+    // componentWillMount(){
+    //     axios.get(`http://${home}:9000/posts/getAll`)
+    //     // :${this.state.serveceProvider}
+    //     .then(res => {
+    //         this.setState({myPosts:res.data})
+    //         console.log(this.state)
+    //     })
+    // }
     componentWillMount(){
-        axios.get(`http://10.60.247.112:9000/posts/getAll`)
-        // :${this.state.serveceProvider}
-        .then(res => {
-            this.setState({myPosts:res.data})
-            console.log(this.state)
-        })
-    }
+      axios.get(`http://${home}:9000/posts/getHistory/:${this.props.user.name}`)
+      // :${this.state.serveceProvider}
+      .then(res => {
+          this.setState({myPosts:res.data})
+          console.log('res.data in history item', res.data)
+      })
+  }
     render(){
       // const {price, date, serveceProviderRating} = this.state.myPosts
         return (
           <Fragment >
-              {/* <Text>{this.state.myPosts.length}</Text> */}
+              <Text>{this.props.user.name}</Text>
               {/* <Button onPress={this.onClick} title ='test'/> */}
               <View style={styles.info}>
               <View style={styles.historyContainer}>
