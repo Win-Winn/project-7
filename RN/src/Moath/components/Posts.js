@@ -16,7 +16,7 @@ export default class New extends Component {
   }
 
   componentWillMount() {
-    axios.get(`http://${home}:9000/posts/posts`)
+    axios.get(`http://${codingAcademy}:9000/posts/posts`)
       .then(res => {
         this.setState({ data: res.data })
       })
@@ -24,8 +24,7 @@ export default class New extends Component {
   }
 
   book = (id) => {
-    
-    axios.put(`http://${home}:9000/posts/booking/${id}/${this.props.user.name}`)
+    axios.put(`http://${codingAcademy}:9000/posts/booking/${id}/${this.props.user.name}`)
     .then(res => {
       console.log('from book native', res.data)
     })
@@ -42,6 +41,7 @@ export default class New extends Component {
 
   render() {
     return (
+    // <View style = {{width: 200, alignItems: 'flex-end'}}>
       <FlatList
         data={this.state.data}
         renderItem={({ item }) =>
@@ -89,7 +89,6 @@ export default class New extends Component {
               title = 'book'
               buttonStyle = {{
                 backgroundColor: (item.booking) ? 'red' : 'blue'
-                // : this.state.color,
               }}
               onPress = {this.book.bind(this, item._id)}
               >
@@ -104,8 +103,6 @@ export default class New extends Component {
                   //     axios.put(`http://${home}:9000/posts/report2/${item._id}`)
                   //     this.setState({report: this.state.report + 1})
                   alert('you report sent sucssesfully,, Thank you!')
-
-
                   //     // })
                   // }
                 }}
@@ -117,7 +114,7 @@ export default class New extends Component {
         }
         keyExtractor={item => item.id}
       />
-
+    // </View>
     );
   };
 }

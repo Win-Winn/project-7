@@ -22,6 +22,8 @@ router.post('/newPost', (req, res) => {
   console.log('hello from server')
 
   const newPost = req.body;
+  console.log('newPost', newPost)
+  
   mongo.creatNewPost(newPost, (result) => {
     res.json(result);
   })
@@ -39,6 +41,7 @@ router.get('/getHistory/:user', (req, res) => {
 
 router.get('/posts', (req, res) => {
   mongo.getTasks((result) => {
+  console.log('hello from serverrrr')
       res.json(result);
   })
 })

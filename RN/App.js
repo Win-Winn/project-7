@@ -9,10 +9,11 @@ import LoginScreen from './src/Deyaa/components/LoginScreen'
 import SigninServiceProviderScreen from './src/Deyaa/components/LoginServiceProvider'
 import SignupServiceProviderScreen from './src/Deyaa/components/SignupServiceProvider'
 import WellcomePage from './src/Haya/components/Wellcome'
-// import Posts from './src/Moath/components/Posts'
+import Posts from './src/Moath/components/Posts'
 import Dashboard from './src/Haya/components/DashBoard'
 // import NewPost from './src/Emad/components/NewPost'
 import NewPost from './src/Emad/components/NewPost'
+import SortItems from './src/Haya/components/SortItems'
 const navigator = createStackNavigator(
   {
     UserHomeScreen: UserHomeScreen,
@@ -24,9 +25,10 @@ const navigator = createStackNavigator(
     SigninServiceProviderScreen,
     SignupServiceProviderScreen,
     WellcomePage: WellcomePage,
-    // Posts,
+    Posts,
     Dashboard,
-    NewPost
+    NewPost,
+    SortItems
   },
   {
     initialRouteName: 'WellcomePage',

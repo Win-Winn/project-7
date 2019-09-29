@@ -2,18 +2,18 @@ const db =require("../DB")
 
 
 let temp = [{
-  user: '9th user',
-  task: '9th Task',
+  user: '15h user',
+  task: '15th Task',
   time: new Date(),
-  categories: 'Shopping',
-  price: '777$',
+  Categories: 'Kids Need',
+  Price: '2342$',
   isUrgent: true,
   scheduledDate: 'Some Date',
-  location:'amman2',
+  Location:'amman1',
   booking: false,
   userRating: 1,
   serveceProviderRating: 3,
-  serveceProvider: 'name 9',
+  serveceProvider: 'name 15',
   reports: 0
 }]
 
@@ -33,6 +33,7 @@ let getTasks = (cb) => {
       if (err) {
           cb(err)
       } else {
+      console.log('hello from databaseeee')
           cb(data)
       }
   })

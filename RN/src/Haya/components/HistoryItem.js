@@ -47,7 +47,7 @@ class HistoryItem extends Component {
     //     })
     // }
     componentWillMount(){
-      axios.get(`http://${home}:9000/posts/getHistory/:${this.props.user.name}`)
+      axios.get(`http://${codingAcademy}:9000/posts/getHistory/:${this.props.user}`)
       // :${this.state.serveceProvider}
       .then(res => {
           this.setState({myPosts:res.data})

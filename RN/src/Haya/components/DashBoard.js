@@ -30,13 +30,14 @@ onStarRatingPress = (rating) => {
 }
 
     render(){
+      {console.log('log from dash', this.state.user)}
         return (
           <Fragment >
               <View style={styles.info}>
               <Image style={styles.item} source={require('./OG_Facebook.png')}/> 
               {/* it should be this.props.photo  */}
               {console.log('log from dash', this.state.user)}
-              <Text style={styles.item}>{this.state.user.name}</Text> 
+              <Text style={styles.item}>{this.state.user}</Text> 
               {/* it should be {this.props.name} */}
             </View>
             <View style={styles.stars}>

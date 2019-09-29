@@ -14,6 +14,8 @@ import {
   Image
 } from 'react-native';
 
+// import { DrawerNavigator } from 'react-navigation'
+
 
 class Wellcome extends Component {
 
@@ -36,6 +38,10 @@ class Wellcome extends Component {
         );
     }
   };
+
+
+
+
   
   const styles = StyleSheet.create({
       Slogan:{

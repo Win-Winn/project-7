@@ -56,19 +56,19 @@ class EmadApp extends Component {
     categories: '',
     price: '',
     isUrgent: true,
-    scheduledDate: String,
+    scheduledDate: '',
     location: '',
     booking: false,
     userRating: this.props.user.rating,
-    serveceProviderRating: Number,
-    serveceProvider: String,
+    serveceProviderRating: 2,
+    serveceProvider: '',
   }
 
 
   _onPressButton = () => {
-    axios.post(`http://${home}:9000/posts/newPost`, this.state)
-
+    axios.post(`http://${codingAcademy}:9000/posts/newPost`, this.state)
       .then(response => {
+        // this.set
         console.log('newpost', response)
       })
       .catch(error => {
