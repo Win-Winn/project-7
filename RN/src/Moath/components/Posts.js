@@ -9,8 +9,8 @@ const home = '192.168.1.92'
 
 export default class New extends Component {
   state = {
-    data : [],
-    color : '',
+    data: [],
+    color: '',
     // report
     // display: 'none'
   }
@@ -25,23 +25,22 @@ export default class New extends Component {
 
   book = (id) => {
     axios.put(`http://${codingAcademy}:9000/posts/booking/${id}/${this.props.user.name}`)
-    .then(res => {
-      console.log('from book native', res.data)
-    })
-    this.setState({color: 'red'})
-  }
-
-  addPost = newPost => {
-    axios.post('/posts', newPost)
       .then(res => {
-        this.setState({ data: [res.data, ...this.state.data] });
+        console.log('from book native', res.data)
       })
-      .catch(err => console.log(err))
+    this.setState({ color: 'red' })
   }
 
+  // addPost = newPost => {
+  //   axios.post('/posts', newPost)
+  //     .then(res => {
+  //       this.setState({ data: [res.data, ...this.state.data] });
+  //     })
+  //     .catch(err => console.log(err))
+  // }
   render() {
     return (
-    // <View style = {{width: 200, alignItems: 'flex-end'}}>
+      // <View style = {{width: 200, alignItems: 'flex-end'}}>
       <FlatList
         data={this.state.data}
         renderItem={({ item }) =>
@@ -86,16 +85,16 @@ export default class New extends Component {
             </View>
             <View>
               <Button
-              title = 'book'
-              buttonStyle = {{
-                backgroundColor: (item.booking) ? 'red' : 'blue'
-              }}
-              onPress = {this.book.bind(this, item._id)}
+                title='book'
+                buttonStyle={{
+                  backgroundColor: 'red'
+                }}
+                onPress={this.book.bind(this, item._id)}
               >
               </Button>
-              <TouchableOpacity 
-                style={{backgroundColor: 'red'}}
-                onPress = {() => {
+              <TouchableOpacity
+                style={{ backgroundColor: 'red' }}
+                onPress={() => {
                   // axios.put(`http://${home}:9000/posts/report/${item._id}`)
                   // if(item.reports > 3){
                   //   // .then(res => {
@@ -106,7 +105,7 @@ export default class New extends Component {
                   //     // })
                   // }
                 }}
-                >
+              >
                 <Text>Report</Text>
               </TouchableOpacity>
             </View>
@@ -114,7 +113,7 @@ export default class New extends Component {
         }
         keyExtractor={item => item.id}
       />
-    // </View>
+      // </View>
     );
   };
 }
@@ -149,7 +148,7 @@ const styles = StyleSheet.create({
   NameView: {
     paddingTop: 7
   },
-  btn:{
+  btn: {
     backgroundColor: 'red'
   }
 });

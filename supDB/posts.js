@@ -54,13 +54,14 @@ let getAll = (cb) => {
 
 
   let getHistory = (user, cb) => {
-    db.posts.find({user: 'other'}, (err, data) => {
+    db.posts.find({user: user}, (err, data) => {
       if (err) {
         cb(err);
       } else {
-      console.log('hello from database history')
+      console.log('hello from database history', data)
         // console.log("data:", data);
-        cb(data);
+        // gecbtAll(cb);
+        cb(data)
       }
     });
   };
@@ -71,9 +72,9 @@ let creatNewPost = (newPost, cb) => {
     if (err) {
       cb(err);
     } else {
-    console.log('hello from database')
+    console.log('data: ', data)
       // console.log("data:", data);
-      cb(data);
+      getTasks(cb);
     }
   })
 }
@@ -111,24 +112,38 @@ let creatNewPost = (newPost, cb) => {
             console.log(id)
             console.log('hello from database')
               // console.log("data:", data);
-              cb(data);
+              getTasks(cb);
             }
           })
         }
 
+        // let report2 = (id, cb) => {
+        //   db.posts.updateOne({_id: id}, {$set: {booking: true}},  (err, data) => {
+        //     if (err) {
+        //       cb(err);
+        //     } else {
+        //     console.log(id)
+        //     console.log('hello from database 222')
+        //       // console.log("data:", data);
+        //       getTasks(data);
+        //     }
+        //   })
+        // }
+
+
         let report2 = (id, cb) => {
-          db.posts.updateOne({_id: id}, {$set: {booking: true}},  (err, data) => {
+          db.posts.deleteOne({ _id: id }, (err, data) => {
             if (err) {
               cb(err);
             } else {
-            console.log(id)
-            console.log('hello from database 222')
+              console.log(id);
+              console.log("hello from database 222");
               // console.log("data:", data);
-              cb(data);
+              getAll(cb);
             }
-          })
-        }
-
+          });
+        };
+        
         let getSorted = (name, cb) => {
           db.posts.find({task: name}, (err, data) => {
             if (err) {

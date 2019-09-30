@@ -14,6 +14,7 @@ import Dashboard from './src/Haya/components/DashBoard'
 // import NewPost from './src/Emad/components/NewPost'
 import NewPost from './src/Emad/components/NewPost'
 import SortItems from './src/Haya/components/SortItems'
+import HomeScreen from './src/screens/HomeScreen'
 const navigator = createStackNavigator(
   {
     UserHomeScreen: UserHomeScreen,
@@ -28,7 +29,8 @@ const navigator = createStackNavigator(
     Posts,
     Dashboard,
     NewPost,
-    SortItems
+    // SortItems,
+    HomeScreen
   },
   {
     initialRouteName: 'WellcomePage',

@@ -34,7 +34,7 @@ let userSchema = new mongoose.Schema({
 let postSchema = new mongoose.Schema({
   user: String,
   task: String,
-  time: Date,
+  time: String,
   Categories: String,
   Price: String,
   isUrgent: Boolean,
@@ -44,7 +44,7 @@ let postSchema = new mongoose.Schema({
   userRating: Number,
   serveceProviderRating: Number,
   serveceProvider: String,
-  // reports: Number
+  reports: Number
 });
 
 

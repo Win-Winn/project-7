@@ -6,7 +6,7 @@ import DashBoard from '../Haya/components/DashBoard'
 import NewPost from '../Emad/components/NewPost'
 // import Posts from '../Moath/components/Posts'
 import { DrawerNavigator, StackNavigator, DrawerItems, SafeAreaView } from 'react-navigation'
-import AboutUs from './AboutUs'
+// import AboutUs from './AboutUs'
 import Wellcome from '../Haya/components/Wellcome'
 
 const UserHomeScreen = (props) => {

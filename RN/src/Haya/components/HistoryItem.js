@@ -21,19 +21,19 @@ const home = '192.168.1.92'
 class HistoryItem extends Component {
     state = {
         myPosts: [
-          {
-          task: '',
-          time: '',
-          categories: '',
-          price: '',
-          isUrgent: true,
-          scheduledDate: '',
-          location: '',
-          booking: false,
-          userRating: '',
-          serveceProviderRating: '',
-          serveceProvider: ''
-        }
+        //   {
+        //   task: '',
+        //   time: '',
+        //   categories: '',
+        //   price: '',
+        //   isUrgent: true,
+        //   scheduledDate: '',
+        //   location: '',
+        //   booking: false,
+        //   userRating: '',
+        //   serveceProviderRating: '',
+        //   serveceProvider: ''
+        // }
       ],
       serveceProvider: 'name'
     }
@@ -47,11 +47,13 @@ class HistoryItem extends Component {
     //     })
     // }
     componentWillMount(){
-      axios.get(`http://${codingAcademy}:9000/posts/getHistory/:${this.props.user}`)
-      // :${this.state.serveceProvider}
+      axios.get(`http://${codingAcademy}:9000/posts/getHistory/${this.props.user.name}`)
+      // axios.get(`http://${codingAcademy}:9000/posts/getHistory/:${this.props.user.name}`)
+      // :${this.state.serveceProvider}then
+      // console.log('this.props.user.name', this.props.user.name)
       .then(res => {
-          this.setState({myPosts:res.data})
-          console.log('res.data in history item', res.data)
+          this.setState({myPosts: res.data})
+          console.log('this.state.myPosts', this.state.myPosts.length)
       })
   }
     render(){

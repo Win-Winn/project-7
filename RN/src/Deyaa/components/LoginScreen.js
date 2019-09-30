@@ -32,7 +32,8 @@ class LoginScreen extends Component {
     submittedEmail: "",
     submittedPassword: "",
     valid: true,
-    focusNext: false
+    focusNext: false,
+    // test: ''
   };
   OnSubmit = async () => {
     if (this.state.email === "" || this.state.password === "") return;
@@ -50,11 +51,11 @@ class LoginScreen extends Component {
       await this.setState({
         valid: true
       });
-      this.props.navigation.navigate("UserHomeScreen", {
-        user: res.data[0].name
+      this.props.navigation.navigate("HomeScreen", {
+        user: res.data[0]
       });
     } else await this.setState({ valid: false });
-    console.log(res.data[0]);
+    console.log('res.data[0]', res.data[0]);
   };
   render() {
     return (
