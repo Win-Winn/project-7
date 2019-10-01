@@ -5,14 +5,16 @@ import {
   ScrollView,
   View,
   Switch,
-  Text,
+  // Text,
   TextInput,
-  Button,
+  // Button,
   StatusBar,
   FlatList,
   TouchableOpacity,
-  Image
+  Image,
 } from 'react-native';
+
+import { Avatar, Rating, Button, Text, Card } from 'react-native-elements';
 
 // import { DrawerNavigator } from 'react-navigation'
 
@@ -22,17 +24,41 @@ class Wellcome extends Component {
     render(){
         return (
           <Fragment >
+            <View style = {{backgroundColor: '#3098B1', flex: 1}}>
+            <View style = {{flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', height: 50}}>
+              <TouchableOpacity onPress = {() => this.props.navigation.navigate('AbouttUs')}>
+                <Text
+                style = {{ color:'white', fontWeight: 'bold', borderBottomColor: '#094250', borderBottomWidth: 1, padding: 10}}
+                > About Us</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress = {() => this.props.navigation.navigate('ContactUs')}>            
+                <Text
+                style = {{ color:'white', fontWeight: 'bold', borderBottomColor: '#094250', borderBottomWidth: 1, padding: 10}}                
+                > Contact Us</Text>
+              </TouchableOpacity>
+            </View>
               <View style={styles.Slogan}>
-              <Image style={{width: 150, height: 150}} source={require('./OG_Facebook.png')}/>
-            <Text>Some Slogan ...</Text>
+              <Image style={{width: 150, height: 150, marginTop: 10}} source={require('../../screens/Images/logo.webp')}/>
+            <Text
+                style = {{color: '#094250', fontSize: 20, margin: 40, fontWeight: 'bold'}}            
+            >We are Always  بخدمتكـ !</Text>
             </View>
             <View style={styles.authentecation}>
-            <TouchableOpacity onPress={ () => this.props.navigation.navigate('LoginScreen')}>
-                <Text>Register as User!</Text>
+            <TouchableOpacity 
+            style = {styles.TouchableOpacity}            
+            onPress={ () => this.props.navigation.navigate('LoginScreen')}>
+                <Text
+                style = {{color: '#D4F1F8', fontSize: 14}}
+                >Register as User!</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={ () => this.props.navigation.navigate('SigninServiceProviderScreen')}>
-                <Text>Register as Servece Provider!</Text>
+            <TouchableOpacity
+            style = {styles.TouchableOpacity}
+            onPress={ () => this.props.navigation.navigate('SigninServiceProviderScreen')}>
+                <Text
+                style = {{color: '#D4F1F8', fontSize: 14}}
+                >Register as Servece Provider!</Text>
             </TouchableOpacity>
+            </View>
             </View>
           </Fragment>
         );
@@ -40,18 +66,23 @@ class Wellcome extends Component {
   };
 
 
-
-
-  
   const styles = StyleSheet.create({
       Slogan:{
-          margin: 50,
+          // margin: 50,
           alignItems: 'center'
 
       },
       authentecation:{
         // margin: 30,
         alignItems: 'center'
+      },
+      TouchableOpacity: {
+        margin: 10,
+        color: '#1C4B7D',
+        borderWidth: 0.8,
+        padding: 15,
+        borderRadius: 5,
+        borderColor: '#094250'
       }
   })
 

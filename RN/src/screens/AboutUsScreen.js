@@ -61,7 +61,7 @@ class AboutUsScreen extends Component {
         </Card>
         <Card
           title="Emad Alrasheed"
-          image={require("./Images/Emad.jpg")}
+          image={require("./Images/emadAlrasheed.jpg")}
           imageStyle={{ height: 265 }}
         >
           <Text style={{ marginBottom: 10 }}>
